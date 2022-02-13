@@ -1,0 +1,11 @@
+job_name: "Create reference job"
+job_type: createReference
+parameter:
+  reference_name: "testref"
+  input_data: "test/testrefinput1.csv"
+  creation_rule: 1
+  start_value: 100000
+  increment: 1
+  negate: False
+  output_type: csv
+  target_file: "d:\\ref.csv"

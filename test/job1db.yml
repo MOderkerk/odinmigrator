@@ -1,0 +1,12 @@
+job_name: "Create reference job"
+job_type: createReference
+parameter:
+  reference_name: "testref"
+  input_data: "test/testrefinput1.csv"
+  creation_rule: 1
+  start_value: 100000
+  increment: 1
+  field_type: BIGINT
+  negate: True
+  output_type: db
+  target_file: "d:\\ref.db"

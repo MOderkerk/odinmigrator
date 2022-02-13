@@ -1,0 +1,19 @@
+job_name: "Transformation Tabelle 1"
+job_type: transformation
+parameter:
+  input_data: "test/testtransform1.csv"
+  target_file: "d:\\output.csv"
+  reference_database: "test/test.db"
+  transformation_rules:
+      - fieldpos: 0
+        sourcefield: 0
+        rule: copy
+      - fieldpos: 1
+        sourcefield: 1
+        rule: ref
+        reference_name: testref
+      - fieldpos: 2
+        rule: const
+        value: "33"
+
+
