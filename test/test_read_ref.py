@@ -1,5 +1,5 @@
 import unittest
-from src import reference
+from src.odinmigrator import reference
 
 
 class TestReadReference(unittest.TestCase):

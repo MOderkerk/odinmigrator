@@ -1,2 +1,5 @@
 .idea
 **/*.log
+dist/
+src/odinmigrator_marcooderkerk.egg-info
+**/*error.txt

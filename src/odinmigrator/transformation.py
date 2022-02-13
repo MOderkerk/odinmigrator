@@ -2,9 +2,7 @@ import csv
 import sys
 from sqlite3 import Cursor
 
-from src import reference
-
-from src import odinlogger
+from src.odinmigrator import odinlogger, reference
 
 my_logger = odinlogger.setup_logging("Transformation")
 

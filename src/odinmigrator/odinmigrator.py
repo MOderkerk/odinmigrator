@@ -3,10 +3,7 @@ import datetime
 from time import process_time
 import sys
 
-from src import odinlogger
-from src import jobconfig
-from src import reference
-from src import transformation
+from src.odinmigrator import odinlogger, jobconfig, transformation, reference
 
 my_logger = odinlogger.setup_logging("main")
 

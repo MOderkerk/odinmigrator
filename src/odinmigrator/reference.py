@@ -4,7 +4,7 @@ from sqlite3 import Connection, Cursor
 import csv
 import sqlite3
 
-from src import odinlogger
+from src.odinmigrator import odinlogger
 
 my_logger = odinlogger.setup_logging("Reference")
 
