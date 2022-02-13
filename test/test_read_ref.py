@@ -1,5 +1,5 @@
 import unittest
-import reference
+from src import reference
 
 
 class TestReadReference(unittest.TestCase):

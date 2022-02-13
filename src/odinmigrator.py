@@ -1,13 +1,12 @@
 import datetime
 
 from time import process_time
-import logging
 import sys
 
-import odinlogger
-import jobconfig
-import reference
-import transformation
+from src import odinlogger
+from src import jobconfig
+from src import reference
+from src import transformation
 
 my_logger = odinlogger.setup_logging("main")
 
@@ -45,7 +44,7 @@ def print_job_statistic(start_time_of_job, end_time_of_job, stats: str, end_stat
 
 if __name__ == '__main__':
 
-    my_logger.info('Starting Odin\'s data migration tool version 1.0.0')
+    my_logger.info('Starting Odin\'s data migration tool version 0.0.1-Alpha')
     my_logger.info('Starting with parameters  %s', str(sys.argv))
     start_time_of_job = get_ts()
     jobdata = read_job_config()
@@ -54,7 +53,7 @@ if __name__ == '__main__':
     if jobdata['job_type'] == 'createReference':
         result=create_reference(jobdata=jobdata)
     elif jobdata['job_type'] == 'transformation':
-        result=transformation.perform_transformation(jobdata=jobdata)
+        result= transformation.perform_transformation(jobdata=jobdata)
     else:
         my_logger.critical("Unknown job_type found. Please check : %s", jobdata['job_type'])
         sys.exit(99)

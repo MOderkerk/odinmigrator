@@ -1,8 +1,10 @@
 from sqlite3 import Connection, Cursor
 
-import odinlogger
+
 import csv
 import sqlite3
+
+from src import odinlogger
 
 my_logger = odinlogger.setup_logging("Reference")
 

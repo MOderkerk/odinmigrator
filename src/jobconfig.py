@@ -1,6 +1,6 @@
 import yaml
 
-import odinlogger
+from src import odinlogger
 
 my_logger = odinlogger.setup_logging("Jobconfig reader")
 
