@@ -154,6 +154,48 @@ of the error file and use the normal transformation function to get missing tran
 
 At the end of a transformation a small result with input, output and error count is displayed
 
+## Filetransfer 
+Transfer file up and from a server. Save a dir list to a file.
+
+Parameter| Description 
+----|----
+job_name| Name of the job
+job_type | for file transfer jobs it must be 'ftp'
+server | target server
+tls | True = use tls   False = don't use tls
+port | port of ftp 
+ftp-secret-file | path to a csv file with the columns : server;user;pw
+files | Area for the fileoperations
+- file | start of a operation (multiple times possible)
+ remotefolder | used for cwd command to switch the remote folder
+ filename | name of the remote or local filename
+target | local target folder 
+command | get = download put = upload list=dir list
+
+````
+job_name: "file transfer job"
+job_type: ftp
+server: ftp.example.de
+tls: False
+port: 21
+ftp-secret-file: d:\test.netrc
+files:
+    - file:
+        remotefolder: ./
+        filename: test.csv
+        target: d:\
+        command: get
+    - file:
+        remotefolder: ./
+        command: list
+        target: d:\
+        filename: dirlist.txt
+    - file:
+        remotefolder: ./
+        filename: testrefinput1.csv
+        source: d:\
+        command: put
+````
 
 ## Job protocol
 In the job protocol you can see the startend, endtime, the duration and the cpu time. 

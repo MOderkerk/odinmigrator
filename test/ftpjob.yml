@@ -1,6 +1,6 @@
 job_name: "file transfer job"
 job_type: ftp
-server: ftp.oderkerk.de
+server: ftp.example.????
 tls: False
 port: 21
 ftp-secret-file: d:\test.netrc
