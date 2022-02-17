@@ -3,7 +3,7 @@ import datetime
 from time import process_time
 import sys
 
-from src.odinmigrator import odinlogger, jobconfig, transformation, reference
+from src.odinmigrator import odinlogger, jobconfig, transformation, reference, filetransfer
 
 my_logger = odinlogger.setup_logging("main")
 
@@ -27,12 +27,12 @@ def get_ts():
     return datetime.datetime.today()
 
 
-def print_job_statistic(start_time_of_job, end_time_of_job, stats: str, end_status: str):
+def print_job_statistic(start_time_of_job_input, end_time_of_job_input, stats: str, end_status: str):
     my_logger.info("========================================================")
     my_logger.info("Job statistics : ")
-    my_logger.info("Job started at : %s", start_time_of_job)
-    my_logger.info("Job ended   at : %s", end_time_of_job)
-    duration = end_time_of_job - start_time_of_job
+    my_logger.info("Job started at : %s", start_time_of_job_input)
+    my_logger.info("Job ended   at : %s", end_time_of_job_input)
+    duration = end_time_of_job_input - start_time_of_job_input
     my_logger.info("Duration       : %s  ", duration)
     my_logger.info("CPU TIME       : %s  ", process_time())
 
@@ -51,6 +51,8 @@ if __name__ == '__main__':
         result=create_reference(jobdata=jobdata)
     elif jobdata['job_type'] == 'transformation':
         result= transformation.perform_transformation(jobdata=jobdata)
+    elif jobdata['job_type'] == 'ftp':
+        result = filetransfer.transfer(jobdata=jobdata)
     else:
         my_logger.critical("Unknown job_type found. Please check : %s", jobdata['job_type'])
         sys.exit(99)
