@@ -1,0 +1,22 @@
+job_name: "file transfer job"
+job_type: ftp
+server: ftp.example.????
+tls: False
+port: 21
+ftp-secret-file: d:\test.netrc
+files:
+    - file:
+        remotefolder: ./
+        filename: test.csv
+        target: d:\
+        command: get
+    - file:
+        remotefolder: ./
+        command: list
+        target: d:\
+        filename: dirlist.txt
+    - file:
+        remotefolder: ./
+        filename: testrefinput1.csv
+        source: d:\
+        command: put
