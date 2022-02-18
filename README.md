@@ -6,6 +6,7 @@ This small application is used for performing data migration based on csv files.
 In the actual version the following functions are supported:
 - Create a transformation reference for keys. You can choose between csv or sqlite db output
 - You can perform simple transformations. Copy entries, exchange data with data from a reference, exchange fields with constants
+- Make simple file transfers 
 
 
 ## Usage
